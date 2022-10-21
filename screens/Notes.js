@@ -1,4 +1,10 @@
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import React from 'react';
 import Icon from 'react-native-vector-icons/AntDesign';
 import Icons from 'react-native-vector-icons/MaterialIcons';
@@ -18,7 +24,21 @@ const Notes = () => {
           </TouchableOpacity>
         </View>
       </View>
-      <View></View>
+      <View style={style.count}>
+        <Text style={{fontWeight: '700', fontSize: 18, color: '#0F52BA'}}>
+          Total:
+        </Text>
+      </View>
+      <View style={style.inputContainer}>
+        <TextInput
+          placeholder="Search..."
+          placeholderTextColor="#0F52BA"
+          style={style.TextInput}
+        />
+        <TouchableOpacity style={style.button}>
+          <Icons name="search" size={25} color="white" />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -56,5 +76,26 @@ export const style = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'center',
+  },
+  count: {
+    paddingBottom: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderBottomWidth: 3,
+    borderBottomColor: '#0F52BA',
+  },
+  inputContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingTop: 10,
+  },
+  TextInput: {
+    width: '80%',
+    height: '90%',
+    paddingHorizontal: 20,
+    borderColor: '#0F52BA',
+    borderWidth: 3,
+    borderRadius: 5,
   },
 });
