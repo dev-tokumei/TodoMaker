@@ -8,7 +8,6 @@ import {
 import React from 'react';
 import Icon from 'react-native-vector-icons/AntDesign';
 import Icons from 'react-native-vector-icons/MaterialIcons';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 const Notes = ({navigation}) => {
   return (

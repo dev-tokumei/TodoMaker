@@ -7,18 +7,8 @@
  */
 
 import React from 'react';
-import {SafeAreaView, StatusBar, StyleSheet, Text} from 'react-native';
+import {StyleSheet} from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-/* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's
- * LTI update could not be added via codemod */
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Notes from './screens/Notes';
@@ -31,7 +21,9 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator style={style.sectionContainer}>
         <Stack.Screen name="Home">{props => <Notes {...props} />}</Stack.Screen>
-        <Stack.Screen name="AddNotes">{props => <AddNotes {...props} />}</Stack.Screen>
+        <Stack.Screen name="AddNotes">
+          {props => <AddNotes {...props} />}
+        </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );
