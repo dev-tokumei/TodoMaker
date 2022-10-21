@@ -22,6 +22,7 @@ import {
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Notes from './screens/Notes';
+import AddNotes from './screens/addNotes';
 
 const Stack = createNativeStackNavigator();
 
@@ -30,6 +31,7 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator style={style.sectionContainer}>
         <Stack.Screen name="Home">{props => <Notes {...props} />}</Stack.Screen>
+        <Stack.Screen name="AddNotes">{props => <AddNotes {...props} />}</Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );

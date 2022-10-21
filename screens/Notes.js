@@ -10,16 +10,20 @@ import Icon from 'react-native-vector-icons/AntDesign';
 import Icons from 'react-native-vector-icons/MaterialIcons';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
-const Notes = () => {
+const Notes = ({navigation}) => {
   return (
     <View style={style.containerView}>
       <View style={style.headingContainer}>
         <Text style={style.title}>Your Notes....</Text>
         <View style={style.iconContainer}>
-          <TouchableOpacity style={style.button}>
+          <TouchableOpacity
+            style={style.button}
+            onPress={() => console.log('tjel')}>
             <Icon name="delete" size={25} color="white" />
           </TouchableOpacity>
-          <TouchableOpacity style={style.button}>
+          <TouchableOpacity
+            style={style.button}
+            onPress={() => navigation.navigate('AddNotes')}>
             <Icons name="add" size={25} color="white" />
           </TouchableOpacity>
         </View>
@@ -37,6 +41,9 @@ const Notes = () => {
         />
         <TouchableOpacity style={style.button}>
           <Icons name="search" size={25} color="white" />
+        </TouchableOpacity>
+        <TouchableOpacity style={style.button}>
+          <Icons name="clear" size={25} color="white" />
         </TouchableOpacity>
       </View>
     </View>
@@ -91,7 +98,7 @@ export const style = StyleSheet.create({
     paddingTop: 10,
   },
   TextInput: {
-    width: '80%',
+    width: '70%',
     height: '90%',
     paddingHorizontal: 20,
     borderColor: '#0F52BA',
