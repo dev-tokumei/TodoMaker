@@ -1,19 +1,38 @@
 import {
+  Keyboard,
   KeyboardAvoidingView,
   Platform,
   ScrollView,
   StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
   View,
 } from 'react-native';
 import React from 'react';
+import Icons from 'react-native-vector-icons/MaterialIcons';
 
 const AddNotes = () => {
   return (
-    <ScrollView>
+    <ScrollView style={{elevation: 10}}>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'android' ? 'padding' : 'height'}>
-        <View style={{justifyContent: 'space-around', padding: 20}}>
-          <Text style={{color: 'red'}}>Hello</Text>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <View style={style.containerNotes}>
+            <View style={style.Notes}>
+              <TextInput
+                placeholder="Type Here..."
+                placeholderTextColor="#ccc"
+                multiline={true}
+              />
+            </View>
+          </View>
+        </TouchableWithoutFeedback>
+        <View style={style.bntConrainer}>
+          <TouchableOpacity style={style.button}>
+            <Icons name="add" size={25} color="white" />
+          </TouchableOpacity>
         </View>
       </KeyboardAvoidingView>
     </ScrollView>
@@ -22,29 +41,41 @@ const AddNotes = () => {
 
 export default AddNotes;
 
-export const style = StyleSheet.create({
+const style = StyleSheet.create({
   containerNotes: {
-    width: '90%',
-    height: '100%',
+    width: '100%',
+    height: 300,
+    marginTop: 20,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 0.32,
+    shadowRadius: 5.46,
+    elevation: 9,
+  },
+  Notes: {
+    width: '96%',
+    height: '94%',
     borderColor: '#0F52BA',
     borderWidth: 3,
-    elevation: 10,
-    padding: 20,
-    marginTop: 20,
-    backgroundColor: '#000',
+    marginTop: 15,
+    marginLeft: 9,
   },
-  card: {
-    backgroundColor: 'white',
-    borderRadius: 8,
-    paddingVertical: 45,
-    paddingHorizontal: 25,
+  bntConrainer: {
     width: '100%',
-    marginVertical: 10,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    padding: 10,
   },
-  shadowProp: {
-    shadowOffset: {width: -2, height: 4},
-    shadowColor: '#171717',
-    shadowOpacity: 0.2,
-    shadowRadius: 3,
+  button: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    backgroundColor: '#0F52BA',
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'center',
   },
 });

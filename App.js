@@ -12,7 +12,7 @@ import {StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Notes from './screens/Notes';
-import AddNotes from './screens/addNotes';
+import AddNotes from './screens/AddNotes';
 
 const Stack = createNativeStackNavigator();
 
