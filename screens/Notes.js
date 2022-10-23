@@ -17,7 +17,7 @@ const Notes = ({navigation}) => {
         <View style={style.iconContainer}>
           <TouchableOpacity
             style={style.button}
-            onPress={() => console.log('tjel')}>
+            onPress={() => navigation.navigate('DeleteNote')}>
             <Icon name="delete" size={25} color="white" />
           </TouchableOpacity>
           <TouchableOpacity
@@ -28,7 +28,7 @@ const Notes = ({navigation}) => {
         </View>
       </View>
       <View style={style.count}>
-        <Text style={{fontWeight: '700', fontSize: 18, color: '#0F52BA'}}>
+        <Text style={{fontWeight: '800', fontSize: 18, color: '#0F52BA'}}>
           Total:
         </Text>
       </View>
@@ -71,7 +71,7 @@ export const style = StyleSheet.create({
   },
   title: {
     fontSize: 30,
-    fontWeight: '700',
+    fontWeight: '800',
     color: '#0F52BA',
   },
   button: {

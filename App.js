@@ -13,6 +13,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Notes from './screens/Notes';
 import AddNotes from './screens/AddNotes';
+import DeleteNote from './screens/DeleteNote';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,6 +24,9 @@ const App = () => {
         <Stack.Screen name="Home">{props => <Notes {...props} />}</Stack.Screen>
         <Stack.Screen name="AddNotes">
           {props => <AddNotes {...props} />}
+        </Stack.Screen>
+        <Stack.Screen name="DeleteNote">
+          {props => <DeleteNote {...props} />}
         </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
