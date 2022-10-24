@@ -13,7 +13,7 @@ import {
 import React from 'react';
 import Icons from 'react-native-vector-icons/MaterialIcons';
 
-const AddNotes = () => {
+const AddNotes = ({...props}) => {
   return (
     <ScrollView style={{elevation: 10}}>
       <KeyboardAvoidingView
@@ -25,6 +25,8 @@ const AddNotes = () => {
                 placeholder="Type Here..."
                 placeholderTextColor="#ccc"
                 multiline={true}
+                value={props.note}
+                onChangeText={text => props.setNote(text)}
               />
             </View>
           </View>

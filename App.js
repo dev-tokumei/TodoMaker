@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet} from 'react-native';
 
 import {NavigationContainer} from '@react-navigation/native';
@@ -16,6 +16,15 @@ import AddNotes from './screens/AddNotes';
 import DeleteNote from './screens/DeleteNote';
 
 const Stack = createNativeStackNavigator();
+const [note, setNote] = useState();
+const [notes, setNotes] = useState();
+
+const handleNote = () => {
+  let newNote = note;
+  let newNotes = [notes, ...newNote];
+  setNotes(newNotes);
+  setNote('');
+};
 
 const App = () => {
   return (
@@ -23,7 +32,7 @@ const App = () => {
       <Stack.Navigator style={style.sectionContainer}>
         <Stack.Screen name="Home">{props => <Notes {...props} />}</Stack.Screen>
         <Stack.Screen name="AddNotes">
-          {props => <AddNotes {...props} />}
+          {props => <AddNotes {...props} handleNote={handleNote} />}
         </Stack.Screen>
         <Stack.Screen name="DeleteNote">
           {props => <DeleteNote {...props} />}
