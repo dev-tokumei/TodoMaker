@@ -16,6 +16,7 @@ const DeleteNote = () => {
             flexDirection: 'row',
             justifyContent: 'flex-start',
             alignItems: 'center',
+            width: '25%',
           }}>
           <TouchableOpacity style={style.emptyButtom}>
             <Text style={style.emptyButtomText}>Undo All</Text>
@@ -24,6 +25,17 @@ const DeleteNote = () => {
         <Text style={{fontWeight: '800', fontSize: 18, color: '#0F52BA'}}>
           Total:{' '}
         </Text>
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'flex-start',
+            alignItems: 'center',
+            width: '25%',
+          }}>
+          <TouchableOpacity style={style.emptyButtom}>
+            <Text style={style.emptyButtomText}>Empty</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </ScrollView>
   );
@@ -39,7 +51,7 @@ export const style = StyleSheet.create({
     padding: 10,
   },
   emptyButtom: {
-    width: '50%',
+    width: '100%',
     borderRadius: 25,
     justifyContent: 'center',
     alignItems: 'center',
@@ -47,8 +59,12 @@ export const style = StyleSheet.create({
     backgroundColor: '#0F52BA',
   },
   emptyButtomText: {
-    fontSize: 17,
-    fontWeight: '600',
+    fontSize: 16,
+    fontWeight: '700',
     color: '#fff',
+  },
+  devider: {
+    borderBottomColor: '#0F52BA',
+    width: '100%',
   },
 });
