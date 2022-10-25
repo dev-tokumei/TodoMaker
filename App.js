@@ -16,17 +16,17 @@ import AddNotes from './screens/AddNotes';
 import DeleteNote from './screens/DeleteNote';
 
 const Stack = createNativeStackNavigator();
-const [note, setNote] = useState();
-const [notes, setNotes] = useState();
-
-const handleNote = () => {
-  let newNote = note;
-  let newNotes = [notes, ...newNote];
-  setNotes(newNotes);
-  setNote('');
-};
 
 const App = () => {
+  const [note, setNote] = useState();
+  const [notes, setNotes] = useState();
+
+  const handleNote = () => {
+    let newNote = note;
+    let newNotes = [notes, ...newNote];
+    setNotes(newNotes);
+    setNote('');
+  };
   return (
     <NavigationContainer>
       <Stack.Navigator style={style.sectionContainer}>
