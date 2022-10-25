@@ -32,7 +32,14 @@ const App = () => {
       <Stack.Navigator style={style.sectionContainer}>
         <Stack.Screen name="Home">{props => <Notes {...props} />}</Stack.Screen>
         <Stack.Screen name="AddNotes">
-          {props => <AddNotes {...props} handleNote={handleNote} />}
+          {props => (
+            <AddNotes
+              {...props}
+              handleNote={handleNote}
+              note={note}
+              setNote={setNote}
+            />
+          )}
         </Stack.Screen>
         <Stack.Screen name="DeleteNote">
           {props => <DeleteNote {...props} />}
