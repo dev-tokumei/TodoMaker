@@ -32,7 +32,9 @@ const AddNotes = ({...props}) => {
           </View>
         </TouchableWithoutFeedback>
         <View style={style.bntConrainer}>
-          <TouchableOpacity style={style.button}>
+          <TouchableOpacity
+            style={style.button}
+            onPress={() => props.handleNote()}>
             <Icons name="add" size={25} color="white" />
           </TouchableOpacity>
         </View>

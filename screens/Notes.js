@@ -1,4 +1,5 @@
 import {
+  ScrollView,
   StyleSheet,
   Text,
   TextInput,
@@ -9,7 +10,7 @@ import React from 'react';
 import Icon from 'react-native-vector-icons/AntDesign';
 import Icons from 'react-native-vector-icons/MaterialIcons';
 
-const Notes = ({navigation}) => {
+const Notes = ({navigation, ...props}) => {
   return (
     <View style={style.containerView}>
       <View style={style.headingContainer}>
@@ -45,6 +46,34 @@ const Notes = ({navigation}) => {
           <Icons name="clear" size={25} color="white" />
         </TouchableOpacity>
       </View>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={style.scrollView}>
+        {props.notes.length === 0 ? (
+          <View style={style.emptyContainer}>
+            <Text style={style.emptyText}>
+              There is no note yet! Click on the + plus button to add new
+              note...
+            </Text>
+          </View>
+        ) : (
+          props.notes.map((item, idx) => (
+            <View style={style.item} key={idx}>
+              <View style={style.note}>
+                <View style={style.idx}>
+                  <Text>{idx + 1}</Text>
+                </View>
+                <View style={style.text}>
+                  <Text>{item}</Text>
+                </View>
+              </View>
+              <TouchableOpacity>
+                <Text style={style.delete}>X</Text>
+              </TouchableOpacity>
+            </View>
+          ))
+        )}
+      </ScrollView>
     </View>
   );
 };
@@ -56,6 +85,7 @@ export const style = StyleSheet.create({
     paddingHorizontal: 20,
     marginBottom: 70,
     opacity: 0.9,
+    flex: 1,
   },
   headingContainer: {
     flexDirection: 'row',
@@ -103,5 +133,31 @@ export const style = StyleSheet.create({
     borderColor: '#0F52BA',
     borderWidth: 3,
     borderRadius: 5,
+  },
+  scrollView: {
+    width: '100%',
+    justifyContent: 'center',
+  },
+  emptyContainer: {
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingTop: 150,
+  },
+  emptyText: {
+    fontSize: 20,
+    fontWeight: '700',
+    color: '#0F52BA',
+  },
+  item: {
+    backgroundColor: '#0F52BA',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    width: '100%',
+    borderWidth: 3,
+  },
+  note: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
 });
