@@ -150,14 +150,19 @@ export const style = StyleSheet.create({
     color: '#0F52BA',
   },
   item: {
-    backgroundColor: '#0F52BA',
+    borderLeftColor: '#0F52BA',
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     width: '100%',
+    marginTop: 10,
+    borderLeftWidth: 10,
     borderWidth: 3,
+    borderColor: '#0F52BA',
   },
   note: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
+    width: 200,
   },
 });
