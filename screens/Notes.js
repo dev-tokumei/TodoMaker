@@ -35,6 +35,7 @@ const Notes = ({navigation, ...props}) => {
       </View>
       <View style={style.inputContainer}>
         <TextInput
+          color="#000"
           placeholder="Search..."
           placeholderTextColor="#0F52BA"
           style={style.TextInput}
@@ -58,18 +59,21 @@ const Notes = ({navigation, ...props}) => {
           </View>
         ) : (
           props.notes.map((item, idx) => (
-            <View style={style.item} key={idx}>
-              <View style={style.note}>
-                <View style={style.idx}>
-                  <Text>{idx + 1}</Text>
-                </View>
-                <View style={style.text}>
-                  <Text>{item}</Text>
-                </View>
-              </View>
+            <View style={style.items} key={idx}>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                }}></View>
               <TouchableOpacity>
-                <Text style={style.delete}>X</Text>
+                <Text style={style.text}>X</Text>
               </TouchableOpacity>
+              <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+                <Text>Date: </Text>
+                <TouchableOpacity>
+                  <Text>Edit</Text>
+                </TouchableOpacity>
+              </View>
             </View>
           ))
         )}
@@ -149,20 +153,26 @@ export const style = StyleSheet.create({
     fontWeight: '700',
     color: '#0F52BA',
   },
-  item: {
+  items: {
     borderLeftColor: '#0F52BA',
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'flex-start',
     width: '100%',
+    height: 80,
     marginTop: 10,
     borderLeftWidth: 10,
     borderWidth: 3,
     borderColor: '#0F52BA',
+    color: '#000',
   },
   note: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     width: 200,
+  },
+  text: {
+    color: '#000',
   },
 });

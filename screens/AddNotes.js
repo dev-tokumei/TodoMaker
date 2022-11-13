@@ -1,4 +1,5 @@
 import {
+  Alert,
   Keyboard,
   KeyboardAvoidingView,
   Platform,
@@ -13,7 +14,7 @@ import {
 import React from 'react';
 import Icons from 'react-native-vector-icons/MaterialIcons';
 
-const AddNotes = ({...props}) => {
+const AddNotes = ({navigation, ...props}) => {
   return (
     <ScrollView style={{elevation: 10}}>
       <KeyboardAvoidingView
@@ -22,8 +23,9 @@ const AddNotes = ({...props}) => {
           <View style={style.containerNotes}>
             <View style={style.Notes}>
               <TextInput
+                color="#000"
                 placeholder="Type Here..."
-                placeholderTextColor="#ccc"
+                placeholderTextColor="grey"
                 multiline={true}
                 value={props.note}
                 onChangeText={text => props.setNote(text)}
@@ -34,7 +36,14 @@ const AddNotes = ({...props}) => {
         <View style={style.bntConrainer}>
           <TouchableOpacity
             style={style.button}
-            onPress={() => props.handleNote()}>
+            onPress={() => {
+              if (props.note === '') {
+                Alert.alert('Please Type Something!');
+              } else {
+                props.handleNote();
+                navigation.navigate('Home');
+              }
+            }}>
             <Icons name="add" size={25} color="white" />
           </TouchableOpacity>
         </View>
@@ -66,6 +75,7 @@ const style = StyleSheet.create({
     borderWidth: 3,
     marginTop: 15,
     marginLeft: 9,
+    color: '#000',
   },
   bntConrainer: {
     width: '100%',
